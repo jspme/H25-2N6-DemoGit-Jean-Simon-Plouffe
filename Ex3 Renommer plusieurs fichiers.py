@@ -20,4 +20,3 @@ for fichier in os.listdir():
     nom_separe[2] = nom_separe[2].zfill(2)
     nom_final = nom_separe[0] + nom_separe[1] + nom_separe[2] + '.mp4'
     os.rename(fichier,nom_final)
-    print('mp4')
