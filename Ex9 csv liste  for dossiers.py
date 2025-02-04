@@ -14,14 +14,26 @@ import csv
 #         ATTENTION: Pour le nom de chaque jeu: changez le ':' pour un '_' et gardez juste les 20 premiers caractères
 
 #         Si besoin, des instructions détaillées sont données plus bas
+os.chdir("csvs")
 
+liste_de_jeu = []
 
-
-
-
-
-
-
+with open("Ex7 Lan Party.csv") as fichier_lu:
+    reader = csv.reader(fichier_lu,delimiter=';')
+    next(reader)
+    for line in reader:
+        liste_de_jeu.append(line)
+for ligne in liste_de_jeu:
+    os.mkdir(ligne[0])
+    os.chdir(ligne[0])
+    jeux = ligne[1:]
+    for jeu in jeux:
+        if ':' in jeu:
+            jeu = jeu.replace(':','_')
+        jeu_final = jeu[:20]
+        os.mkdir(jeu_final)
+    os.chdir('..')
+print("fin")
 
 
 
