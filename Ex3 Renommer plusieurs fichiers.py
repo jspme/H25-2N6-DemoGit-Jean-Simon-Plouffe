@@ -10,14 +10,14 @@ import os
 
 os.chdir(os.path.dirname(__file__)) 
 os.chdir("Ex3 Videos")
-nom_final = []
 
 for fichier in os.listdir():
     nom = os.path.splitext(fichier)
     nom_separe = nom[0].split('_')
-    for info in nom_separe:
-        info_strip = info.strip()
-        for info[2] in info:
-            
-        nom_final.append(info_strip)
+    nom_separe[0] = nom_separe[0].strip()
+    nom_separe[2] = nom_separe[2].strip()
+    nom_separe[2] = nom_separe[2].strip('#')
+    nom_separe[2] = nom_separe[2].zfill(2)
+    nom_final = nom_separe[0] + nom_separe[1] + nom_separe[2] + '.mp4'
+    os.rename(fichier,nom_final)
     print('mp4')
