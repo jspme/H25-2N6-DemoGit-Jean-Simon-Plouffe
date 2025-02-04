@@ -8,7 +8,8 @@
 # #     recréez le nouveau nom de fichier#   utliser os.rename pour renommer le fichier
 import os
 
-os.chdir('C:\\Users\\2157216\\Downloads\\R03 Exercices Depart V3\\Ex3 Videos')
+os.chdir(os.path.dirname(__file__)) 
+os.chdir("Ex3 Videos")
 nom_final = []
 
 for fichier in os.listdir():
@@ -16,5 +17,7 @@ for fichier in os.listdir():
     nom_separe = nom[0].split('_')
     for info in nom_separe:
         info_strip = info.strip()
+        for info[2] in info:
+            
         nom_final.append(info_strip)
     print('mp4')
